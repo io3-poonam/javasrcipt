@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #cardId {
+      background-color: bisque;
+      border: 1px solid black;
+      width: 20%;
+      margin: 15px;
+      padding: 15px;
+      height: auto;
+      /* */
+    }
+    .para-Location {
+      font-size: large;
+    }
+    #api {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  </style>
+  <body>
+    <div id="api"></div>
+    <script>
+      const apiAccess = document.getElementById("api");
+      fetch("http://api.citybik.es/v2/networks")
+        .then((apiData) => {
+          console.log("api Data", apiData);
+          return apiData.json();
+        })
+        .then((actualApiData) => {
+          console.log("actual data", actualApiData);
+          apiAccess.innerHTML = `${actualApiData?.networks?.map((item, i) => {
+            return `<div id='cardId'>
+                <p> Company: ${item?.company}</p>
+                <p> Name: ${item?.name}</p>
+                <p> Id: ${item?.id}</p>
+                <p class="para-Location">Location</p>
+                <p> City: ${item?.location?.city}</p>
+                <p> Country:${item?.location?.country}</p>
+                <p> Latitude: ${item?.location?.latitude}</p>
+                <p> Longitude: ${item?.location?.longitude}</p>
+                Link: <a href=${`http://api.citybik.es${item?.href}`} target="_blank"> ${
+              item?.href
+            }</a>
+
+                </div>`;
+          })}`;
+        });
+    </script>
+  </body>
+</html>
