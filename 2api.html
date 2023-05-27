@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api2</title>
+    <style>
+      #cardMain {
+        background-color: aquamarine;
+        border: 1px solid black;
+        width: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="api2"></div>
+    <script>
+      let enterData = document.getElementById("api2");
+      console.log("api2", enterData);
+      fetch("https://rickandmortyapi.com/api/character/108")
+        .then((apiFirst) => {
+          console.log("Api Result", apiFirst);
+          return apiFirst.json();
+        })
+        .then((apiData) => {
+          console.log("api data", apiData);
+          enterData.innerHTML = `<div id="cardMain">
+                      <p>Id: ${apiData?.id}</p>
+                      <p>Name: ${apiData?.name}</p>
+                      <p>Status: ${apiData?.status}</p>
+                      <p>Species: ${apiData?.species}</p>
+                      <p>Type: ${apiData?.type}</p>
+                      <p>Gender: ${apiData?.gender}</p>
+                      <p>Origin: </p>
+                      <p>Name: ${apiData?.origin?.name}</p>
+                      <p>Url: ${apiData?.origin?.url}</p>
+                Link: <a href=${`${apiData?.url}`} target="_blank"> ${
+            apiData?.url
+          }</a>
+          <p>Location: </p>
+
+          <p>Name: ${apiData?.Location?.name}</p>
+          Link: <a href=${`${apiData?.url}`} target="_blank"> ${
+            apiData?.url
+          }</a>
+         
+
+
+                      </div>`;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="blank"></div>
+    <script>
+      let blank = document.getElementById("blank");
+      console.log("blank", blank);
+      fetch("https://list.ly/api/v4/meta?url=http://google.com")
+        .then((firstStep) => {
+          console.log("firstStep", firstStep);
+          return firstStep.json();
+        })
+        .then((secondStep) => {
+          console.log("secondStep", secondStep);
+          blank.innerHTML = `
+          <div class="innerHTML">
+            <p>URL: ${secondStep?.url}</p>
+            <p>Metadata: ${secondStep?.metadata}</p>
+            <p>Status: ${secondStep?.metadata?.status}</p>
+            <p>URL: ${secondStep?.metadata?.url}</p>
+            <p>Name:${secondStep?.metadata?.name}</p>
+            <p>Description: ${secondStep?.metadata?.description}</p>
+<img src=${secondStep?.metadata?.images} alt='google image'/>           
+          </div>
+            `;
+        });
+    </script>
+  </body>
+</html>

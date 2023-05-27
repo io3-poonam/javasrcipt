@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>razorPay</title>
+  </head>
+  <style>
+    #ifcs-code {
+      background-color: rgb(191, 223, 213);
+      border: 1px solid black;
+      width: 50%;
+      padding: 5px;
+    }
+  </style>
+  <body>
+    <div id="razorPay"></div>
+    <script>
+      let razorPay = document.getElementById("razorPay");
+      console.log("razorPay", razorPay);
+      fetch("https://ifsc.razorpay.com/YESB0DNB002")
+        .then((data) => {
+          console.log("data", data);
+          return data.json();
+        })
+        .then((value) => {
+          console.log("value", value);
+          razorPay.innerHTML = ` <div id="ifcs-code">
+            <p>BRANCH: ${value?.BRANCH}</p>
+            <p>CENTRE: ${value?.CENTRE}</p>
+            <p>DISTRICT: ${value?.DISTRICT}</p>
+            <p>STATE: ${value?.STATE}</p>
+            <p>ADDRESS: ${value?.ADDRESS}</p>
+            <p>CONTACT: ${value?.CONTACT}</p>
+            <p>IMPS: ${value?.IMPS}</p>
+            <p>CITY: ${value?.CITY}</p>
+            <p>UPI: ${value?.UPI}</p>
+            <p>RTGS: ${value?.RTGS}</p>
+            <p>MICRO: ${value?.MICRO}</p>
+            <p>NEFT: ${value?.NEFT}</p>
+            <p>SWIFT: ${value?.SWIFT}</p>
+            <p>ISO3166: ${value?.ISO3166}</p>
+            <p>BANK: ${value?.BANK}</p>
+            <p>BANKCODE: ${value?.BANKCODE}</p>
+            <p>IFSC: ${value?.IFSC}</p>
+            </div> `;
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    </script>
+  </body>
+</html>
