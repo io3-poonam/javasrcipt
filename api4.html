@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api5</title>
+    <style>
+        #api5 {
+            width: 50%;
+            display: flex;
+        }
+
+        .container {
+            margin: 10px;
+            padding: 10px;
+            background-color: antiquewhite;
+            border: 1px solid black;
+            width: 50%;
+        }
+    </style>
+</head>
+<div id="api5">
+
+</div>
+
+<body>
+    <script>
+        const api5 = document.getElementById('api5');
+        console.log('test', api5);
+        fetch('https://www.amiiboapi.com/api/amiibo/?name=mario')
+            .then((enterFirst) => {
+                console.log('first enter data check', enterFirst)
+                return enterFirst.json();
+            })
+            .then((checkSecond) => {
+                console.log('second check data', checkSecond)
+                api5.innerHTML = `${checkSecond?.amiibo?.map((items, i) => {
+                    return ` 
+                        <div class="container">
+                    <div >
+                        <p>AmiiboSeries: ${items?.amiiboSeries}</p>
+                        <p>Character: ${items?.character}</p>
+                        <p>Name: ${items?.name}</p>
+                        <p>GameSeries: ${items?.gameSeries}</p>
+                        <p>Head: ${items?.head}</p>
+                        <img src=${items?.image} alt="img-background" width="100px" height="150px">
+                        <p>Release: </p>
+                        <p>AU: ${items?.release?.au}</p>
+                        <p>EU: ${items?.release?.eu}</p>
+                        <p>JP: ${items?.release?.jp}</p>
+                        <p>NA: ${items?.release?.na}</p>
+
+                        <p>Tail: ${items?.tail}</p>
+                        <p>Type: ${items?.type}</p>
+                        </div>
+                    </div>`
+                })}`
+            })
+            .catch((error) => {
+                console.log('error', error)
+            });
+
+    </script>
+</body>
+
+</html>
