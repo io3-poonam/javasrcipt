@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* -----------navbar------start----------- */
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+}
+.banner-logo {
+  display: flex;
+  margin: 1rem;
+}
+.banner-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 8px;
+}
+.banner-items {
+  display: flex;
+  list-style-type: none;
+}
+.banner-items a,
+a .cart-shopping-span {
+  text-decoration: none;
+}
+.banner-section {
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+
+  text-transform: uppercase;
+}
+.banner-center-section {
+  padding: 1.5rem 1rem;
+  color: rgb(94, 93, 95);
+}
+.cart-shopping {
+  color: #2c9b74;
+  padding: 1rem;
+  font-size: 25px;
+  cursor: pointer;
+  list-style: none;
+}
+/* ----------navbar----------end---- */
+.shoes-container-1 {
+  background-color: rgb(235, 244, 244);
+  margin-top: 5%;
+  border: 1px solid rgb(233, 222, 222);
+  border-radius: 20px;
+}
+
+.shoes-container {
+  background-color: rgb(235, 244, 244);
+  width: 85%;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shoes-collect {
+  border-radius: 20px;
+  border: 1px solid rgb(213, 207, 207);
+  background-color: rgb(212, 230, 230);
+  padding: 1%;
+  width: 24rem;
+  margin: 1%;
+}
+.shoe-img img {
+  width: 170px;
+  height: 110px;
+}
+.shoe-img {
+  border: 1px solid #ddd4d4;
+  background-color: #ccd5d5;
+  margin: auto;
+  padding: 2rem 2rem 5rem 2rem;
+  border-radius: 1rem;
+}
+.shoe-img img:hover {
+  width: 180px;
+  height: 115px;
+}
+.product-title {
+  padding: 2% 1%;
+}
+.product-detail {
+  padding: 0 1% 5% 1%;
+}
+.price-section {
+  /* padding-top: 60px; */
+}
+.btn {
+  float: right;
+  color: #f0f1f3;
+  background-color: rgb(92, 138, 208);
+  border: none;
+  padding: 1% 3%;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: wait;
+}
+
+.btn .fa-cart-shopping {
+  padding: 5px;
+  cursor: pointer;
+  color: #f0f1f3;
+}
+.inStock {
+  font-size: 15px;
+  color: black;
+  font-weight: 700;
+}
+.add-to-cart {
+  background-color: rgb(180, 195, 234);
+  border: none;
+  padding: 1% 3%;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+.add-to-cart .fa-cart-shopping {
+  padding: 5px;
+  cursor: pointer;
+  color: #1a2a28;
+}

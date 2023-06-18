@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .mainDiv{
+      width: 80%;
+      margin: auto;
+    }
+    .btn{
+width:30%;
+padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-Div">
+  <button class="btn" id="btn">Click here</button>
+</div> 
+  <script>
+// const [btnClicked]=document.getElementsByClassName('btn')
+// let isClicked=[];
+// btnClicked.addEventListener('click', function(){
+//   console.log('clicked');
+// isClicked=!isClicked;
+// const [main]=document.getElementsByClassName('main-Div')
+// main.style.background=isClicked? 'pink' : 'green'
+// });
+//     const [btnClick]=document.getElementsByClassName('btn')
+//     let isClick=[];
+//     btnClick.addEventListener('click', function(){
+// console.log('click here');
+// const [mainDiv]=document.getElementsByClassName('main-Div');
+// const [body]=document.getElementsByTagName('body');
+// isClick=!isClick
+// body.style.background='gray'
+// mainDiv.style.background= isClick?'green':'pink';
+// btn.style.background=isClick?'green':'pink'
+    // });
+    const [btnAction]=document.getElementsByClassName('btn')
+    let isClicked=[]
+    btnAction.addEventListener('click',function(){
+      console.log('click')
+      isClicked=!isClicked      
+      const[main]=document.getElementsByClassName('main-Div')
+      btnAction.style.background=isClicked?'gray':'pink'
+      
+      main.style.background=isClicked?'gray':'pink'
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
